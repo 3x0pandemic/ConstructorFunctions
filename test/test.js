@@ -5,6 +5,7 @@ var expect = chai.expect;
 describe('Constructors', function () {
   describe('Constructor Excercise 1', function () {
     it('should have a band', function () {
+      expect(constr.band).to.eql(/* */);
     });
   });
 
@@ -13,8 +14,8 @@ describe('Constructors', function () {
     });
   });
 
-  describe('Constructor Excercise 1', function () {
-    it('should add a number to the end of an array', function () {
+  describe('Constructor Excercise 3', function () {
+    it('should something else', function () {
       var arr = [1, 2, 3]
       var pushedArray = basics.pusher(arr, 4)
       expect(pushedArray.length).to.eql(4)
