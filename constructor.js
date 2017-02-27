@@ -1,8 +1,9 @@
 //Contructor Functions
 
 //1. Create an array called bands with 3 objects in it. Each of them describes
-// a music band. Each object should have a name, genre, numberOfPerformers,
-// and numberOfGroupies.
+// a music band. Each object should have a name, genre, and numberOfPerformers.
+// The first should be The Beatles, the second, Miles Davis, the third
+// Dixie Chicks .
 var bands;
 
 //2. Now create a constructor function called Band. Have it take in a name, genre,

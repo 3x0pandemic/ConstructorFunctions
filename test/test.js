@@ -2,156 +2,43 @@ var constructor = require('../constructor');
 const chai = require('chai');
 var expect = chai.expect;
 
+function describeOurBands(ourBands) {
+  it('should have a bands array with three bands', function () {
+    expect(ourBands.length).to.eql(3);
+  });
+  it('should have a first band called The Beatles', function() {
+    expect(ourBands[0].name).to.eql('The Beatles');
+    expect(ourBands[0].genre).to.eql('Rock and Roll');
+    expect(ourBands[0].numberOfPerformers).to.eql(4);
+  });
+  it('should have a second band called Miles Davis', function() {
+    expect(ourBands[1].name).to.eql('Miles Davis');
+    expect(ourBands[1].genre).to.eql('Jazz');
+    expect(ourBands[1].numberOfPerformers).to.eql(1);
+  });
+  it('should have a first band called The Beatles', function() {
+    expect(ourBands[2].name).to.eql('Dixie Chicks');
+    expect(ourBands[2].genre).to.eql('Country');
+    expect(ourBands[2].numberOfPerformers).to.eql(3);
+  });
+};
+
 describe('Constructors', function () {
-  describe('Constructor Excercise 1', function () {
-    it('should have a band', function () {
-      expect(constr.band).to.eql(/* */);
-    });
+  describe('bands array', function () {
+    describeOurBands(constructor.bands);
   });
 
-  describe('Constructor Excercise 2', function () {
+  describe('Band constructor', function () {
     it('should something', function () {
+      var aBand = new constructor.Band("a band", "a genre", 70);
+      expect(aBand.name).to.eql("a band");
+      expect(aBand.genre).to.eql("a genre");
+      expect(aBand.numberOfPerformers).to.eql(70);
     });
   });
 
-  describe('Constructor Excercise 3', function () {
-    it('should something else', function () {
-      var arr = [1, 2, 3]
-      var pushedArray = basics.pusher(arr, 4)
-      expect(pushedArray.length).to.eql(4)
-      expect(pushedArray[3]).to.eql(4)
-    })
-  })
+  describe('bands array with constructor', function () {
+    describeOurBands(constructor.bandsWithConstructor);
+  });
 
-  describe('Array Excercise 4 - upFront', function () {
-    it('should add a number to the beginning of an array', function () {
-      var arr = [1, 2, 3]
-      var upFrontArray = basics.upFront(arr, 4)
-      expect(upFrontArray.length).to.eql(4)
-      expect(upFrontArray[0]).to.eql(4)
-    })
-  })
-
-  describe('Array Excercise 5 - remover', function () {
-    it('should remove a number from the beginning of an array', function () {
-      var arr = [1, 2, 3]
-      var removedArray = basics.remover(arr)
-      expect(removedArray.length).to.eql(2)
-      expect(removedArray[0]).to.eql(1)
-      expect(removedArray[1]).to.eql(2)
-    })
-  })
-
-  describe('Array Excercise 7 - Copycat', function () {
-    it('should copy the 2nd and 3rd index', function () {
-      var arr = [1, 2, 3, 4]
-      var copycatArray = basics.copyCat(arr)
-      expect(copycatArray.length).to.eql(2)
-      expect(copycatArray[0]).to.eql(3)
-      expect(copycatArray[1]).to.eql(4)
-    })
-  })
-
-  describe('Array Excercise 7 - chopIt', function () {
-    it('should', function () {})
-  })
-
-  describe('Array Excercise 8 - sumIt', function () {
-    it('should sum the values in an array of numbers', function () {
-      var arr = [1, 2, 3]
-      var sum = basics.sumIt(arr)
-      expect(sum, '1,2 and 3 should sum to 6').to.eql(6)
-    })
-  })
-
-  describe('Array Excercise 9 - evenOdd', function () {
-    it('Should return an array where even numbers correspond to even and odd to odd', function () {
-      var arr = [1, 2, 3]
-      var evenOddArr = basics.evenOdd(arr)
-      expect(evenOddArr.length).to.eql(3)
-      expect(evenOddArr[0]).to.eql('odd')
-      expect(evenOddArr[1]).to.eql('even')
-      expect(evenOddArr[2]).to.eql('odd')
-    })
-  })
-
-  describe('Array Excercise 10 - timesTen', function () {
-    it('', function () {
-      var arr = [1, 2, 3]
-      var evenOddArr = basics.evenOdd(arr)
-      expect(evenOddArr.length).to.eql(3)
-      expect(evenOddArr[0]).to.eql(10)
-      expect(evenOddArr[1]).to.eql(20)
-      expect(evenOddArr[2]).to.eql(30)
-    })
-  })
-
-  describe('Object Excercise 1 - animal', function () {
-    it('Should have the appropriate keys', function () {
-      expect(basics.animal.species).to.be.ok()
-      expect(basics.animal.name).to.be.ok()
-      expect(basics.animal.age).to.be.ok()
-      expect(basics.animal.gender).to.be.ok()
-      expect(basics.animal.favoriteFood).to.be.ok()
-    })
-    it('should have a speech method that returns a string', function () {
-      expect(basics.animal.speech()).to.be.a('string')
-    })
-  })
-
-  describe('Object Excercise 2 - findAge', function () {
-    it('', function () {
-      var age = basics.findAge({age: 10})
-      expect(age).to.eql(10)
-    })
-  })
-
-  describe('Object Excercise 3 - getKeys', function () {
-    it('should return an array of all of the keys', function () {
-      var keys = basics.getKeys({ a: 10, b: 5, c: 6 })
-      expect(keys.to.have.lengthOf(3))
-    })
-  })
-
-  describe('Object Excercise 4 - changeName', function () {
-    it('should change the name of an object', function () {
-      var obj = {name: 'Tom'}
-      basics.changeName(obj, 'Larry')
-      expect(obj.name).to.eql('Larry')
-    })
-  })
-
-  describe('Object Excercise 5 - speechMaker', function () {
-    it('should return the result of a speech function', function () {
-      var speech = basics.speechMaker({ speech: function () { return 'hello' } })
-      expect(speech).to.eql('hello')
-    })
-  })
-
-  describe('Object Excercise 6 - addKey', function () {
-    it('should add a bedtime key to an object and assign it a value', function () {
-      var obj = {}
-      basics.addKey(obj)
-      expect(obj.bedtime).to.not.eql(undefined)
-    })
-  })
-
-  describe('Object Excercise 7 - keyLoop', function () {
-    it("should report if there's a monkey key in the object", function () {
-      var obj = { monkey: true }
-      expect(basics.keyLoop(obj)).to.eql("There's a monkey!")
-    })
-    it("should report if there's not a monkey key in the object", function () {
-      var obj = { notMonkey: true }
-      expect(basics.keyLoop(obj)).to.eql("There's no monkey here!")
-    })
-  })
-
-  describe('Intermediate Excercise 1 - cars', function () {
-    it('', function () {})
-  })
-
-  describe('Intermediate Excercise 2 - findModels', function () {
-    it('', function () {})
-  })
-})
+});
