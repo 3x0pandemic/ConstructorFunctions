@@ -6,8 +6,8 @@
 // Dixie Chicks .
 var bands;
 
-//2. Now create a constructor function called Band. Have it take in a name, genre,
-// numberOfPerformers, and numberOfGroupies. Set the keys to have the value of
+//2. Now create a constructor function called Band. Have it take in a name,
+// genre, and numberOfPerformers. Set the keys to have the value of
 // the parameters using the this keyword.
 var Band;
 
